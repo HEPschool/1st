@@ -1,0 +1,10 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{{ page.title | default: site.title }}</title>
+<meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+<meta name="theme-color" content="#0a84ff">
+
+<meta name="robots" content="noindex,nofollow,noarchive,max-image-preview:none,max-snippet:-1,max-video-preview:0">
+<meta name="googlebot" content="noindex,nofollow">

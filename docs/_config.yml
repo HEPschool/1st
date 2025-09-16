@@ -1,0 +1,27 @@
+title: 1st JCP HEP School
+description: M
+lang: en
+baseurl: /1st
+url: https://HEPschool.github.io
+markdown: kramdown
+timezone: Asia/Seoul
+plugins:
+- jekyll-seo-tag
+kramdown:
+  input: GFM
+  hard_wrap: false
+future: true
+nav:
+- name: Home
+  url: /
+- name: Schedule
+  url: /schedule/
+- name: Lecturers
+  url: /lecturers/
+- name: Lecture Materials
+  url: /materials/
+collections:
+  events:
+    output: true
+    permalink: /events/:slug/
+nav_next_label: Next Event

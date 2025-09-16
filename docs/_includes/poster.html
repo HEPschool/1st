@@ -1,0 +1,29 @@
+{%- assign poster_img = '' -%}
+{%- assign exts = 'png,jpg,jpeg,webp,avif,gif,svg' | split: ',' -%}
+
+{%- for ext in exts -%}
+  {%- assign exact = '/assets/poster.' | append: ext -%}
+  {%- assign hit = site.static_files | where: 'path', exact | first -%}
+  {%- if hit -%}{%- assign poster_img = exact -%}{%- break -%}{%- endif -%}
+{%- endfor -%}
+
+{%- if poster_img == '' -%}
+  {%- for f in site.static_files -%}
+    {%- assign path_lc = f.path | downcase -%}
+    {%- assign name_lc = f.name | downcase -%}
+    {%- assign ext = f.extname | remove: '.' | downcase -%}
+    {%- if path_lc contains '/assets/' and exts contains ext and name_lc contains 'poster' -%}
+      {%- assign poster_img = f.path -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- if poster_img != '' -%}
+<section class="section">
+  <h2>Poster</h2>
+  <a href="{{ poster_img | relative_url }}" target="_blank" rel="noopener">
+    <img class="poster" src="{{ poster_img | relative_url }}" alt="Workshop poster" loading="lazy" decoding="async">
+  </a>
+</section>
+{%- endif -%}

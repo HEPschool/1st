@@ -1,0 +1,32 @@
+{% assign hero = page.hero | default: site.hero %}
+{% assign img = hero.image | default: '' | strip %}
+{% if img != '' %}
+<section class="hero">
+  <div class="hero-media">
+    <img src="{{ img | relative_url }}" alt="{{ hero.alt | default: page.title | default: site.title }}">
+  </div>
+  <div class="hero-overlay">
+    <div class="hero-lines">
+      {% if hero.lines %}
+        {% for ln in hero.lines %}
+          {% assign style = ln.style | default: 'text' %}
+          {% if style == 'overline' %}
+            <div class="hero-line overline">{{ ln.text }}</div>
+          {% elsif style == 'title' %}
+            <h1 class="hero-line title">{{ ln.text }}</h1>
+          {% elsif style == 'subtitle' %}
+            <div class="hero-line subtitle">{{ ln.text }}</div>
+          {% elsif style == 'note' %}
+            <div class="hero-line note">{{ ln.text }}</div>
+          {% else %}
+            <div class="hero-line">{{ ln.text }}</div>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% if hero.title %}<h1 class="hero-line title">{{ hero.title }}</h1>{% endif %}
+        {% if hero.subtitle %}<div class="hero-line subtitle">{{ hero.subtitle }}</div>{% endif %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}

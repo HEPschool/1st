@@ -1,0 +1,10 @@
+- name: "Registration"
+  topic: "Lecture: Dark Matter(25.11.08)"
+  url: "https://forms.gle/YOUR-GOOGLE-FORM-ID"
+  enabled: true
+- name: "Presurvey"
+  url: ""
+  enabled: true
+- name: "Call for Lecturers"
+  url: ""
+  enabled: false

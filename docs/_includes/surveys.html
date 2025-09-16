@@ -1,0 +1,41 @@
+<div class="buttons">
+  {% for b in site.data.surveys %}
+    {% assign is_on = b.enabled | default: false %}
+    {% if is_on and b.url %}
+      <a class="btn{% if b.size == 'small' %} small{% endif %}"
+         href="{{ b.url }}"
+         target="_blank" rel="noopener"
+         role="button">
+        {{ b.name }}
+      </a>
+    {% else %}
+      <a class="btn disabled{% if b.size == 'small' %} small{% endif %}"
+         href="#"
+         aria-disabled="true" tabindex="-1"
+         role="button" title="Temporarily unavailable">
+        {{ b.name }}
+      </a>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{%- assign has_notes = 0 -%}
+{%- for b in site.data.surveys -%}
+  {%- assign is_on = b.enabled | default: false -%}
+  {%- assign topic_str = b.topic | default: '' | strip -%}
+  {%- if is_on and topic_str != '' -%}
+    {%- assign has_notes = 1 -%}{%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if has_notes == 1 -%}
+  <div class="survey-notes" role="status" aria-live="polite">
+    {%- for b in site.data.surveys -%}
+      {%- assign is_on = b.enabled | default: false -%}
+      {%- assign topic_str = b.topic | default: '' | strip -%}
+      {%- if is_on and topic_str != '' -%}
+        <p class="survey-note">✅ <strong>{{ b.name }}</strong> for <strong>{{ topic_str }}</strong> is now open.</p>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+{%- endif -%}

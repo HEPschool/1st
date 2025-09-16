@@ -1,0 +1,43 @@
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+
+    {% assign current_raw = page.url | replace: 'index.html', '' | replace: '//', '/' %}
+    {% if current_raw == '' %}{% assign current_raw = '/' %}{% endif %}
+    {% assign current_path = current_raw | append: '/' | replace: '//', '/' %}
+
+    {% assign empty_array = '' | split: '' %}
+    {% assign next_event = nil %}
+    {% if site.events and site.events != empty_array %}
+      {% assign now = site.time | date: '%s' | plus: 0 %}
+      {% assign events_sorted = site.events | sort: 'date' %}
+      {% for ev in events_sorted %}
+        {% assign ev_ts = ev.date | date: '%s' | plus: 0 %}
+        {% if next_event == nil and ev_ts >= now %}
+          {% assign next_event = ev %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    <nav class="nav">
+      {% for item in site.nav %}
+        {% assign target_raw = item.url | replace: 'index.html', '' | replace: '//', '/' %}
+        {% if target_raw == '' %}{% assign target_raw = '/' %}{% endif %}
+        {% assign target_path = target_raw | append: '/' | replace: '//', '/' %}
+        <a href="{{ target_path | relative_url }}"
+           {% if current_path == target_path %}aria-current="page"{% endif %}>
+          {{ item.name }}
+        </a>
+
+        {% if forloop.index == 1 and next_event %}
+          {% assign latest_path = next_event.url | replace: 'index.html','' | append:'/' | replace:'//','/' %}
+          <a href="{{ latest_path | relative_url }}"
+             class="next-event"
+             {% if current_path == latest_path %} aria-current="page"{% endif %}>
+            {{ site.nav_next_label | default: "Next Event" }}
+          </a>
+        {% endif %}
+      {% endfor %}
+    </nav>
+  </div>
+</header>
