@@ -16,6 +16,8 @@
             <h1 class="hero-line title">{{ ln.text }}</h1>
           {% elsif style == 'subtitle' %}
             <div class="hero-line subtitle">{{ ln.text }}</div>
+          {% elsif style == 'text' %}
+            <div class="hero-line text">{{ ln.text }}</div>
           {% elsif style == 'note' %}
             <div class="hero-line note">{{ ln.text }}</div>
           {% else %}

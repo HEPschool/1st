@@ -6,19 +6,6 @@
     {% if current_raw == '' %}{% assign current_raw = '/' %}{% endif %}
     {% assign current_path = current_raw | append: '/' | replace: '//', '/' %}
 
-    {% assign empty_array = '' | split: '' %}
-    {% assign next_event = nil %}
-    {% if site.events and site.events != empty_array %}
-      {% assign now = site.time | date: '%s' | plus: 0 %}
-      {% assign events_sorted = site.events | sort: 'date' %}
-      {% for ev in events_sorted %}
-        {% assign ev_ts = ev.date | date: '%s' | plus: 0 %}
-        {% if next_event == nil and ev_ts >= now %}
-          {% assign next_event = ev %}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-
     <nav class="nav">
       {% for item in site.nav %}
         {% assign target_raw = item.url | replace: 'index.html', '' | replace: '//', '/' %}
@@ -29,15 +16,75 @@
           {{ item.name }}
         </a>
 
-        {% if forloop.index == 1 and next_event %}
-          {% assign latest_path = next_event.url | replace: 'index.html','' | append:'/' | replace:'//','/' %}
-          <a href="{{ latest_path | relative_url }}"
-             class="next-event"
-             {% if current_path == latest_path %} aria-current="page"{% endif %}>
-            {{ site.nav_next_label | default: "Next Event" }}
-          </a>
+        {% if forloop.index == 1 %}
+          <span id="next-event-slot"
+                data-next-label="{{ site.nav_next_label | default: 'Next Event' | escape }}">
+          </span>
         {% endif %}
       {% endfor %}
     </nav>
+
+    {% assign empty_array = '' | split: '' %}
+    {% assign events_coll = site.events | default: empty_array %}
+    {% assign events_sorted = events_coll | sort: 'date' %}
+
+    <script id="events-data" type="application/json">[
+    {%- for ev in events_sorted -%}
+      {
+        "url": {{ ev.url | replace: 'index.html','' | append:'/' | replace:'//','/' | relative_url | jsonify }},
+        "iso": {{ ev.date | date: "%Y-%m-%dT%H:%M:%S%:z" | jsonify }},
+        "title": {{ ev.title | jsonify }}
+      }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+    ]</script>
+
+    <script>
+      (function () {
+        function ymdInKST(date) {
+          var kst = new Date(date.getTime() + 9 * 60 * 60 * 1000);
+          return kst.toISOString().slice(0, 10);
+        }
+        function ymdFromISOinKST(iso) {
+          var d = new Date(iso);
+          return ymdInKST(d);
+        }
+
+        var todayKST = ymdInKST(new Date());
+
+        var dataEl = document.getElementById('events-data');
+        var events = [];
+        if (dataEl) {
+          try { events = JSON.parse(dataEl.textContent || '[]'); } catch (e) { events = []; }
+        }
+
+        var filtered = events.map(function (ev) {
+          return { url: ev.url, iso: ev.iso, title: ev.title, ymd: ymdFromISOinKST(ev.iso) };
+        }).filter(function (ev) {
+          return ev.ymd >= todayKST;
+        }).sort(function (a, b) {
+          return a.ymd.localeCompare(b.ymd);
+        });
+
+        var next = filtered.length ? filtered[0] : null;
+
+        var slot = document.getElementById('next-event-slot');
+        if (!slot) return;
+
+        if (next) {
+          var a = document.createElement('a');
+          a.href = next.url;
+          a.className = 'next-event';
+          var label = slot.getAttribute('data-next-label') || 'Next Event';
+          a.textContent = label;
+          function normalize(p) { return p.replace(/\/+$/, '/'); }
+          if (normalize(location.pathname) === normalize(new URL(a.href, location.href).pathname)) {
+            a.setAttribute('aria-current', 'page');
+          }
+          slot.replaceWith(a);
+        } else {
+          slot.remove();
+        }
+      })();
+    </script>
   </div>
 </header>
