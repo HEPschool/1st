@@ -3,3 +3,8 @@
   date: 2025-09-16
   file: "/assets/materials/test.pdf"
   id: "test"
+- title: "Test PW"
+  speaker: "Ju Hyeong Kang"
+  date: 2025-10-17
+  file: "/assets/materials/test_pw.pdf"
+  id: "test_pw"
