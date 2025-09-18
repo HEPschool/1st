@@ -5,7 +5,7 @@ title: Schedule
 hero:
   image: "/assets/img/Feynman-diagram.webp"  # Optional
   title: "Schedule"
-  subtitle: "Half-year plan"
+  subtitle: "Lecture plan"
 ---
 # Schedule
 

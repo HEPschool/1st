@@ -5,12 +5,14 @@ title: Lecture Materials
 hero:
   image: "/assets/img/Feynman-diagram.webp"  # Optional
   title: "Lecture Materials"
-  subtitle: "Slides & notes (PDF)"
+  subtitle: "Slides & notes"
 ---
 # Lecture Materials
 
+If you require access to the encrypted materials, please contact the author.
+
 <ul>
-  {% assign mats = site.data.materials | sort: "date" | reverse %}
+  {% assign mats = site.data.materials | sort: "date" %}
   {% for m in mats %}
     {% assign href = m.file %}
     <li>
