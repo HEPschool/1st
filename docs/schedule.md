@@ -5,11 +5,11 @@ title: Schedule
 hero:
   image: "/assets/img/Feynman-diagram.webp"  # Optional
   title: "Schedule"
-  subtitle: "Lecture plan"
+  subtitle: "Lecture & Special Talk Schedule"
 ---
 # Schedule
 
-You can view the details of each session by clicking on it.
+You can view the details of each lecture/special talk by clicking on it.
 
 <table>
 <thead>

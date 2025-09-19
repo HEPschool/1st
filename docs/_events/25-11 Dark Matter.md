@@ -5,7 +5,7 @@ date: 2025-11-08 00:00 +0900
 location: "Room TBA, Chungnam National University"
 speaker: "Daeyeong Jeong, Haebarg Kang"
 address: "Chungnam National University, 99 Daehak-ro, Yuseong-gu, Daejeon 34134, Korea"
-note: "TBA"
+note: "Lecture, TBA"
 overview: >
   Brief overview for Lecture: Dark Matter.
 timetable:
@@ -44,7 +44,7 @@ map_embed: >
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1606.3149986890949!2d127.34389919160189!3d36.36974017722345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35654bee63320a8f%3A0x70e438ccb2656aa8!2z7Lap64Ko64yA7ZWZ6rWQIOuMgOuNley6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1758033402650!5m2!1sko!2skr"
           loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 hero:
-  image: "/assets/img/gargantua.jpg"  # Optional
+  image: "/assets/img/Feynman-diagram.webp"  # Optional
   lines:
     - text: "Dark Matter"
       style: title

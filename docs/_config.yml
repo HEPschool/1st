@@ -25,4 +25,4 @@ collections:
   events:
     output: true
     permalink: /events/:slug/
-nav_next_label: Next Event
+nav_next_label: Next Lecture

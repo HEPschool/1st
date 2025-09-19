@@ -5,7 +5,7 @@ title: Lecture Materials
 hero:
   image: "/assets/img/Feynman-diagram.webp"  # Optional
   title: "Lecture Materials"
-  subtitle: "Slides & notes"
+  subtitle: "Slides & Notes"
 ---
 # Lecture Materials
 

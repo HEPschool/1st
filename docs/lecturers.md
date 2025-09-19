@@ -5,7 +5,7 @@ title: Lecturers
 hero:
   image: "/assets/img/Feynman-diagram.webp"  # Optional
   title: "Lecturers"
-  subtitle: "Thanks a lot"
+  subtitle: "Lecture & Special Talk Speakers"
 ---
 # Lecturers
 

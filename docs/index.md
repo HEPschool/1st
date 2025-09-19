@@ -11,7 +11,7 @@ hero:
       style: title
     - text: "By students, for students"
       style: subtitle
-    - text: "Jeonbuk, Chungnam and Pusan national university & online"
+    - text: "Jeonbuk, Chungnam and Pusan National University"
       style: note
 ---
 # {{ site.title }}
