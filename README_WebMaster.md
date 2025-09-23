@@ -22,8 +22,22 @@ Call for Lecutre: Lecture/Special talk 진행 신청을 위한 조사 <br/>
 name은 설문 조사의 이름으로, 해당 설정값이 Home 화면의 설문조사 단추 위에 표시됩니다. <br/>
 url은 설문 조사 참여 링크로, Google forms 등의 설문 조사 링크를 입력합니다. <br/>
 enabled는 설문 조사 진행 여부를 설정하는 항목으로, true면 Home 화면의 단추가 하늘색으로 활성화되고, false면 단추가 회색으로 비활성화 됩니다. <br/>
-topic은 안내 문구를 위한 설정값으로, topic이 입력되어 있고 enabled: true 인 경우, 아래와 같은 안내 문구가 Home 화면의 단추 하단에 표시됩니다. <br/>
-✅ (name) for (topic) is now open. <br/>
+topic은 안내 문구를 위한 설정값으로, topic이 입력되어 있고 enabled: true 인 경우, 아래와 같은 안내 문구가 Home 화면의 단추 하단에 표시됩니다. <br/><br/>
+✅ (name) for (topic) is now open. <br/><br/>
+위 문구는 docs/_includes/surveys.html 파일의 아래 부분을 수정하여 조정할 수 있습니다. <br/>
+```html
+{%- if has_notes == 1 -%}
+  <div class="survey-notes" role="status" aria-live="polite">
+    {%- for b in site.data.surveys -%}
+      {%- assign is_on = b.enabled | default: false -%}
+      {%- assign topic_str = b.topic | default: '' | strip -%}
+      {%- if is_on and topic_str != '' -%}
+        <p class="survey-note">✅ <strong>{{ b.name }}</strong> for <strong>{{ topic_str }}</strong> is now open.</p>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+{%- endif -%}
+```
 다른 설문 조사들이 필요하다면, docs/_data/surveys.Ymal 파일을 수정하여 새로운 설문 조사들을 등록·관리할 수 있습니다. <br/>
 Home 화면에 표시되는 Survey의 순서는 docs/_data/surveys.Ymal 파일에 입력된 순서를 따릅니다. <br/><br/><br/>
 
