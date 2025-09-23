@@ -100,7 +100,7 @@ favicon은 페이지 방문 시, 웹 브라우저의 탭 항목에 표시되는 
 <link rel="manifest" href="{{ '/assets/favicon/favicon_96.png' | relative_url }}">
 <link rel="apple-touch-icon" href="{{ '/assets/favicon/favicon_180.png' | relative_url }}">
 ```
-<br/><br/><br/>
+기본 설정된 favicon은 ${e^-}{e^+}\to{\mu^-}{\mu^+}$ 과정의 Feynman diagram을 Weinberg angle만큼 돌린 그림입니다. <br/><br/><br/>
 
 ## footer 설정·관리 <br/>
 footer는 각 페이지 하단에 © something · something again 형태로 표시되는 문구입니다. <br/>
