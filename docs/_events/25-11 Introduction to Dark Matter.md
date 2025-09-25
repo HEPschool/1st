@@ -1,42 +1,39 @@
 ---
 layout: event
-title: "Dark Matter"
+title: "Introduction to Dark Matter"
 date: 2025-11-08 00:00 +0900
 location: "Room TBA, Chungnam National University"
 speaker: "Daeyeong Jeong, Haebarg Kang"
 address: "Chungnam National University, 99 Daehak-ro, Yuseong-gu, Daejeon 34134, Korea"
 note: "Lecture, TBA"
 overview: >
-  Brief overview for Lecture: Dark Matter.
+  Brief overview for Lecture: Introduction to Dark Matter. TBA
 timetable:
   - time: "09:00"
     title: "Openning Remarks"
-    speaker: "Chang Hyeon Lee(?)"
+    speaker: ""
   - time: "09:30"
-    title: "Lecture 1: Introduction"
+    title: "Session 1: TBA"
     speaker: "Haebarg Kang"
-    material_id: "test_pw"
+    material_id: ""
   - time: "10:30"
     title: "Break"
     speaker: ""
   - time: "11:00"
-    title: "Lecture 2: Is dark matter a scam?"
+    title: "Session 2: TBA"
     speaker: "Haebarg Kang"
-    material_id: "test_pw"
   - time: "12:00"
     title: "Lunch"
     speaker: ""
   - time: "14:00"
-    title: "Lecture 3: Direct Detection"
+    title: "Session 3: TBA"
     speaker: "Daeyeong Jeong"
-    material_id: "test"
   - time: "15:30"
     title: "Break"
     speaker: ""
   - time: "16:00"
-    title: "Lecture 4: Indirect Detection"
+    title: "Session 4: TBA"
     speaker: "Daeyeong Jeong"
-    material_id: "test"
   - time: "17:00"
     title: "Discussion"
     speaker: ""
@@ -46,7 +43,7 @@ map_embed: >
 hero:
   image: "/assets/img/Feynman-diagram.webp"  # Optional
   lines:
-    - text: "Dark Matter"
+    - text: "Introduction to Dark Matter"
       style: title
     - text: "Daeyeong Jeong, Haebarg Kang"
       style: subtitle

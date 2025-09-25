@@ -11,7 +11,7 @@ README_WebMaster에서는 홈페이지 전반의 관리, Survey 등록·관리, 
 Home 화면에 노출되는 Survey의 기본 항목들은 Registration, Presurvey, Call for Lecture 총 3가지 입니다. <br/>
 Registration: 강연 참석 여부 설문 조사 <br>
 Presurvey: 강연 진행을 위한 사전 설문 조사 (Speaker의 강연 진행을 위한 설문 조사로, Speaker가 항목을 준비하고, 관리자가 설정하여 게시합니다.) <br/>
-Call for Lecutre: Lecture/Special talk 진행 신청을 위한 조사 <br/>
+Call for Lecutres: Lecture/Special talk 진행 신청을 위한 조사 <br/>
 각 Survey들은 정보는 docs/_data/surveys.Ymal 파일을 수정하여 등록·관리할 수 있습니다. <br/>
 ```yml
 - name: "Registration" # 설문 조사 이름 
